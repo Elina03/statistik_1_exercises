@@ -1,0 +1,418 @@
+---
+title: "Übungsblatt_test 03"
+subtitle: "DESKRIPTIVE STATISTIK II: Korrelation"
+format: 
+  html:
+    toc: false
+---
+
+(@) Welche Eigenschaften sollte eine Maßzahl haben, die einen linearen Zusammenhang zwischen zwei Variablen beschreibt? Geben Sie an, welche dieser Eigenschaften Kovarianz und Korrelation jeweils aufweisen.
+
+    ::: {.callout-tip collapse="true"}
+    # Lösung
+
+    Eine sinnvolle Maßzahl für den Zusammenhang zweier Variablen sollte
+
+    -   die Richtung des Zusammenhangs abbilden.
+    -   die Stärke des Zusammenhangs abbilden.
+    -   Unabhängig von der Einheit der Variablen sein.
+
+    Die Korrelation besitzt alle diese Eigenschaften, die Kovarianz lediglich die erste.
+    :::
+    
+
+(@) Ihnen liegen die folgenden Daten vor:
+
+    |           | Lerndauer in Stunden | Punkte in der Klausur |
+    |:----------|---------------------:|----------------------:|
+    | Schüler 1 |                    2 |                     3 |
+    | Schüler 2 |                    4 |                     6 |
+    | Schüler 3 |                    6 |                   7.5 |
+    | Schüler 4 |                    5 |                     9 |
+    | Schüler 5 |                    8 |                    12 |
+
+    a)  Zeichnen Sie basierend auf diesen Daten ein Streudiagramm.
+
+        ::: {.callout-tip collapse="true"}
+        # Lösung
+
+        ```{r}
+        #| fig-cap: "Streudiagramm von Lerndauer und Punkten in der Klausur"
+        #| echo: false
+
+        Lerndauer = c(2, 4, 6, 5, 8)
+        Punkte = c(3, 6, 7.5, 9, 12)
+        d = data.frame(Lerndauer, Punkte)
+
+        library(ggplot2)
+        p = ggplot(d) + geom_point(aes(x = Lerndauer, y = Punkte))
+        p
+        ```
+        :::
+
+    b)  Welche Richtung hat der Zusammenhang? Drücken Sie diesen in Worten aus.
+
+        ::: {.callout-tip collapse="true"}
+        # Lösung
+
+        Es liegt ein gleichgerichteter Zusammenhang vor. Je länger die Schüler lernen, desto mehr Punkte erreichen sie im Durchschnitt in der Klausur.
+        :::
+
+    c)  Welches Vorzeichen würden Sie für die Kovarianz erwarten?
+
+        ::: {.callout-tip collapse="true"}
+        # Lösung
+
+        Da die Kovarianz die Richtung des Zusammenhangs durch ihr Vorzeichen ausdrückt, würde man in diesem Fall ein positives Vorzeichen erwarten.
+        :::
+
+    d)  Berechnen Sie die Kovarianz und interpretieren Sie diese.
+
+        ::: {.callout-tip collapse="true"}
+        # Lösung
+
+        $$\bar{x} = 5$$
+
+        $$\bar{y} = 7.5$$
+
+        $$
+        \begin{align*}
+        {cov}_{emp}(x,\ y) &= \frac{1}{n}\sum_{i = 1}^{n}\left( x_{i} - \bar{x} \right)\left( y_{i} - \bar{y} \right) \\
+        &= \frac{1}{5}\sum_{i = 1}^{5}\left( x_{i} - 5 \right)\left( y_{i} - 7.5 \right) \\
+        &= \frac{1}{5}\left\lbrack \left( x_{1} - 5 \right)\left( y_{1} - 7.5 \right) + \ldots + \left( x_{5} - 5 \right)\left( y_{5} - 7.5 \right) \right\rbrack \\
+        &= \frac{1}{5}\left\lbrack (2 - 5)(3 - 7.5) + \ldots + (8 - 5)(12 - 7.5) \right\rbrack = 5.7
+        \end{align*}
+        $$ Da an der Kovarianz lediglich die Richtung des Zusammenhangs abgelesen werden kann, können wir nur sagen, dass ein gleichgerichteter Zusammenhang der Variablen Lerndauer und Klausurpunkte vorliegt.
+        :::
+
+    e)  **BONUS:** Berechnen Sie die Steigung der bestmöglichen Geraden durch die Messwertpaare und zeichnen Sie diese in das Streudiagramm aus Teilaufgabe a) ein (**Hinweis**: der Achsenabschnitt ist 0.375).
+
+        ::: {.callout-tip collapse="true"}
+        # Lösung
+
+        $$
+        \begin{align*}
+        &{cov}_{emp}(x,\ y) = \ b \times s_{emp\ x}^{2} \\
+        &b = \frac{{cov}_{emp}(x,y)}{s_{emp\ x}^{2}} \\
+        &s_{emp\ x}^{2} = 4 \\
+        &b = \frac{5.7}{4} = 1.425
+        \end{align*}
+        $$
+
+        ```{r}
+        #| echo: false
+        #| message: false
+        p + geom_smooth(aes(x = Lerndauer, y = Punkte), method = 'lm', se = FALSE)
+        ```
+        :::
+
+    f)  Z-standardisieren Sie beide Variablen.
+
+        ::: {.callout-tip collapse="true"}
+        # Lösung
+
+        |           | ***z~x~*** | ***z~y~*** |
+        |:----------|-----------:|-----------:|
+        | Schüler 1 |       -1.5 |       -1.5 |
+        | Schüler 2 |       -0.5 |       -0.5 |
+        | Schüler 3 |        0.5 |          0 |
+        | Schüler 4 |          0 |        0.5 |
+        | Schüler 5 |        1.5 |        1.5 |
+        :::
+
+    g)  Berechnen Sie die Korrelation und interpretieren Sie diese.
+
+        ::: {.callout-tip collapse="true"}
+        # Lösung
+
+        $$
+        \begin{align*}
+        r_{xy} &= \frac{1}{n}\sum_{i = 1}^{n}{z_{x_{i}}\cdot z_{y_{i}}} \\
+        &= \frac{1}{5}\sum_{i = 1}^{5}{z_{x_{i}}\cdot z_{y_{i}}} \\
+        &= \frac{1}{5}\left\lbrack z_{x_{1}}\cdot z_{y_{1}} + \ldots + z_{x_{5}}\cdot z_{y_{5}} \right\rbrack \\
+        &= \frac{1}{5}\left\lbrack ( - 1.5)\cdot( - 1.5) + \ldots + 1.5\cdot 1.5 \right\rbrack = 0.95
+        \end{align*}
+        $$
+
+        Es liegt ein starker gleichgerichteter Zusammenhang der Variablen Lerndauer und Klausurpunkte vor.
+        :::
+
+    h)  Geben Sie die Steigung der bestmöglichen Geraden durch die z-standardisierten Messwertpaare aus Teilaufgabe f) an.
+
+        ::: {.callout-tip collapse="true"}
+        # Lösung
+
+        $$b_{z} = r_{xy} = 0.95$$
+        :::
+        
+
+
+(@) Ihnen liegen folgende Daten vor:
+
+    |           | Medienkonsum in h/Tag | Schlaf in Stunden |
+    |:----------|----------------------:|------------------:|
+    | Schüler 1 |                     3 |                 9 |
+    | Schüler 2 |                     7 |                 5 |
+    | Schüler 3 |                     2 |                 8 |
+    | Schüler 4 |                    10 |                 3 |
+    | Schüler 5 |                     6 |                 6 |
+    | Schüler 6 |                     8 |               3.5 |
+
+    a)  Welche Richtung hat der Zusammenhang? Drücken Sie diesen in Worten aus.
+
+        ::: {.callout-note collapse="true"}
+        # Lösung
+
+        Es liegt ein gegengerichteter Zusammenhang vor. Je höher der tägliche Medienkonsum der Schüler ist, desto weniger schlafen sie im Durchschnitt.
+        :::
+        
+    b)  Berechnen Sie die Kovarianz und interpretieren Sie diese.
+
+        ::: {.callout-note collapse="true"}
+        # Lösung
+
+        $$\bar{x} = 6$$
+
+        $$\bar{y} = 5.75$$
+
+        $$
+        \begin{align*}
+        {cov}_{emp}(x,\ y) &= \frac{1}{n}\sum_{i = 1}^{n}\left( x_{i} - \bar{x} \right)\left( y_{i} - \bar{y} \right) \\
+        &= \frac{1}{6}\sum_{i = 1}^{5}\left( x_{i} - 6 \right)\left( y_{i} - 5.75 \right) \\
+        &= \frac{1}{6}\left\lbrack \left( x_{1} - 6 \right)\left( y_{1} - 5.75 \right) + \ldots + \left( x_{5} - 6 \right)\left( y_{5} - 5.75 \right) \right\rbrack \\
+        &= \frac{1}{6}\left\lbrack (3 - 6)(9 - 5.75) + \ldots + (8 - 6)(3.5 - 5.75) \right\rbrack = -7 
+        \end{align*}
+        $$ Da an der Kovarianz lediglich die Richtung des Zusammenhangs abgelesen werden kann, können wir nur sagen, dass ein gegengerichteter Zusammenhang der Variablen Medienkonsum und Schlaf vorliegt.
+        :::    
+
+
+
+    c)  Berechnen Sie für die beiden Variablen jeweils die Standardabweichung
+    
+        ::: {.callout-note collapse="true"}
+        # Lösung
+        
+        sd(x) = 3.03 \
+        sd(y) = 2.40
+        :::
+
+
+    
+    
+    e)  Z-standardisieren Sie beide Variablen.
+
+        ::: {.callout-note collapse="true"}
+        # Lösung
+
+        |           | ***z~x~*** | ***z~y~*** |
+        |:----------|-----------:|-----------:|
+        | Schüler 1 |      -0.99 |       1.35 |
+        | Schüler 2 |      -0.33 |      -0.31 |
+        | Schüler 3 |      -1.32 |       0.94 |
+        | Schüler 4 |      -1.32 |      -1.14 |
+        | Schüler 5 |          0 |       0.10 |
+        | Schüler 6 |       0.66 |      -0.94 |
+        :::
+
+
+    f)  Berechnen Sie die Korrelation.
+    
+        ::: {.callout-note collapse="true"}
+        # Lösung
+
+        $$
+        \begin{align*}
+        r_{xy} &= \frac{1}{n}\sum_{i = 1}^{n}{z_{x_{i}}\cdot z_{y_{i}}} \\
+        &= \frac{1}{6}\sum_{i = 1}^{6}{z_{x_{i}}\cdot z_{y_{i}}} \\
+        &= \frac{1}{6}\left\lbrack z_{x_{1}}\cdot z_{y_{1}} + \ldots + z_{x_{6}}\cdot z_{y_{6}} \right\rbrack \\
+        &= \frac{1}{6}\left\lbrack ( - 0.99)\cdot( - 1.35) + \ldots + 0.66\cdot (-0.94) \right\rbrack = -0.96
+        \end{align*}
+        $$
+        :::
+
+
+    d)  **BONUS:** Überprüfen Sie Ihre Ergebnisse aus allen Teilaufgaben in R.
+
+        ::: {.callout-note collapse="true"}
+        # Lösung
+        
+        ```{r}
+        x <- c(3, 7, 2, 10, 6, 8)
+
+        y <- c(9, 5, 8, 3, 6, 3.5)
+
+        mean(x)
+        mean(y)
+
+        cov(x,y)
+
+        sd(x)
+        sd(y)
+        
+         # z-Standardisierung für x
+        (x - mean(x)) / sd(x)
+         # z-Standardisierung für y
+        (y - mean(y)) / sd(y)
+
+        cor(x,y)
+        ```
+        :::
+
+
+
+
+(@) Sie lesen in einer Tageszeitung folgende Schlagzeile:
+
+    „Medizinische Überversorgung kostet Menschenleben. Menschen, die häufiger zum Arzt gehen haben deutlich niedrigere Lebenserwartung!"
+
+    Wie könnte man sich den in der Schlagzeile beschriebenen Zusammenhang alternativ erklären und welcher Fehler ist den Autoren des Artikels bei der Interpretation unterlaufen?
+
+    ::: {.callout-tip collapse="true"}
+    # Lösung
+
+    Alternativerklärung: Personen mit ernsten gesundheitlichen Problemen gehen deutlich häufiger zum Arzt als Gesunde. Außerdem haben sie aufgrund ihrer Erkrankung eine niedrigere Lebenserwartung als Gesunde. Die Autoren des Zeitungsartikels interpretieren einen korrelativen Zusammenhang als läge ein kausaler Zusammenhang vor.
+
+    Bei der Korrelation $r_{xy}$ handelt es sich um ein deskriptivstatistisches Maß zur Beschreibung linearer Zusammenhänge zweier Variablen. Der Wert $r_{xy}$ sagt nichts darüber aus, welche Variable von welcher beeinflusst wird oder ob beide Variablen von einer Drittvariable beeinflusst werden.
+
+    Kausale Schlussfolgerungen können grundsätzlich nur gezogen werden, wenn ein Experiment durchgeführt wurde.
+    :::
+
+(@) Warum sollte einer Korrelationsanalyse immer eine grafische Begutachtung der Daten vorausgehen?
+
+    ::: {.callout-tip collapse="true"}
+    # Lösung
+
+    Die Korrelation stellt ein Maß für einen linearen Zusammenhang dar. Im Streudiagramm muss daher zuerst festgestellt werden, ob überhaupt ein linearer Zusammenhang vorliegt. Liegt ein nonlinearer Zusammenhang vor, ist die Korrelation nicht geeignet, den Zusammenhang zu beschreiben. Zum Beispiel kann für einen quadratischen Zusammenhang eine Korrelation von 0 resultieren (siehe Vorlesung). Außerdem muss überprüft werden, ob Ausreißer vorliegen, die die Korrelation verzerren könnten.
+    :::
+
+(@) Bitte laden Sie für die folgenden Aufgaben den Datensatz „Sportdaten.csv" von moodle herunter. Dieser Datensatz enthält (fiktive) Daten zur körperlichen Leistungsfähigkeit von Schülern aus zwei verschiedenen Schulklassen (Klasse 1 und Klasse 2), unter anderem die Variablen „Anzahl Liegestütz" und „Sprungweite in cm". Lesen Sie den Datensatz über den Befehl read.csv2() in R ein:
+
+    ```{r}
+    Daten <- read.csv2("Sportdaten.csv")
+    ```
+
+    a)  Erstellen Sie für beide Klassen jeweils ein Streudiagramm mit der Variable „liegestuetz" auf der x-Achse und der Variable „sprungweite_cm" auf der y-Achse.
+
+        Für die Erstellung der Streudiagramme ist es hilfreich, wenn Sie den Datensatz zunächst nach Klassen aufteilen und jede Klasse als eigenen data.frame in einem Objekt speichern:
+
+        ```{r}
+        Daten1 <- Daten[Daten$Klasse == 1, ]
+        Daten2 <- Daten[Daten$Klasse == 2, ]
+        ```
+
+        Mit dem Befehl plot() können Sie dann das Streudiagramm für die Klasse 1 und dasjenige für die Klasse 2 erstellen. Als erstes und zweites Argument geben Sie dabei die beiden Variablen an, die Sie in dem Streudiagramm darstellen möchten. Mit den zusätzlichen Argumenten xlab bzw. ylab können Sie Beschriftungen der x- und y-Achse angeben. Verwenden Sie zudem das Argument ylim = c(0, 400), um für beide Streudiagramme die y- Achse auf das Intervall von 0 bis 400 zu skalieren.
+
+        Zum Beispiel:
+
+        ```{r}
+        #| eval: false
+        plot(Variable1, Variable2, 
+             xlab = "Anzahl Liegestuetz", 
+             ylab = "Sprungweite in cm", 
+             ylim = c(0, 400))
+        ```
+
+        Können Sie in beiden Klassen von einem linearen Zusammenhang der Variablen ausgehen?
+
+        Wenn ja, in welcher Klasse würden Sie von einem stärkeren Zusammenhang zwischen den beiden Variablen sprechen? Begründen Sie.
+
+        ::: {.callout-tip collapse="true"}
+        # Lösung
+
+        ```{r}
+        ## Streudiagramm Klasse 1
+        plot(Daten1$liegestuetz, Daten1$sprungweite_cm,
+             main = "Klasse 1",
+             xlab = 'Anzahl Liegestuetz',
+             ylab = 'Sprungweite in cm',
+             ylim = c(0, 400))
+            
+        ## Streudiagramm Klasse 2
+        plot(Daten2$liegestuetz, Daten2$sprungweite_cm,
+             main = "Klasse 2",
+             xlab = 'Anzahl Liegestuetz',
+             ylab = 'Sprungweite in cm',
+             ylim = c(0, 400))
+
+            
+        ## Bemerkung: Im Allgemeinen müssen Sie das ylim Argument nicht
+        ## verwenden. Wir benötigen es in unserem Fall nur, damit beide
+        ## Streudiagramme die gleiche Skalierung aufweisen und wir die
+        ## Steigungen vergleichen können.
+        ```
+
+        In beiden Fällen liegt ein linearer gleichgerichteter Zusammenhang zwischen den Variablen vor. Der Zusammenhang erscheint in Klasse 1 aufgrund der stärkeren Steigung bei ähnlicher Streuung der Messwerte um die Gerade etwas stärker.
+        :::
+
+    b)  Berechnen Sie sowohl für Klasse 1 als auch für Klasse 2 die Kovarianz zwischen den Variablen „liegestuetz" und „sprungweite_cm" mithilfe des Befehls `cov()`.
+
+        ::: {.callout-tip collapse="true"}
+        # Lösung
+
+        ```{r}
+        ## Kovarianz Klasse 1
+        cov(Daten1$liegestuetz, Daten1$sprungweite_cm)
+            
+        ## Kovarianz Klasse 2
+        cov(Daten2$liegestuetz, Daten2$sprungweite_cm)
+            
+        ```
+        :::
+
+    c)  Berechnen Sie sowohl für Klasse 1 als auch für Klasse 2 die Korrelation zwischen den Variablen „liegestuetz" und „sprungweite_cm" mithilfe des Befehls `cor()`. Interpretieren Sie diese. In welcher Klasse liegt ein stärkerer Zusammenhang der Variablen vor?
+
+        ::: {.callout-tip collapse="true"}
+        # Lösung
+
+        ```{r}
+        ## Korrelation Klasse 1
+        cor(Daten1$liegestuetz, Daten1$sprungweite_cm)
+
+        ## Korrelation Klasse 2
+        cor(Daten2$liegestuetz, Daten2$sprungweite_cm)
+
+        ```
+
+        In beiden Klassen liegt ein starker gleichgerichteter Zusammenhang zwischen den Variablen „Anzahl Liegestütz" und „Sprungweite in cm" vor. Der Zusammenhang ist in Klasse 1 stärker.
+        :::
+
+    d)  Rechnen Sie für die Klasse 1 die Variable „sprungweite_cm" von cm in km um und fügen Sie diese als Variable „sprungweite_km" zu dem Datensatz der Klasse 1 hinzu. Berechnen Sie nun in Klasse 1 die Kovarianz und die Korrelation zwischen den Variablen „liegestuetz" und „sprungweite_km". Was fällt Ihnen auf?
+
+        ::: {.callout-tip collapse="true"}
+        # Lösung
+
+        ```{r}
+        ## Sprungsweite in Klasse 1 in km umrechnen und zum Datensatz hinzufügen
+        Daten1$sprungweite_km <- Daten1$sprungweite_cm / 100000
+            
+        ## Nochmal Kovarianz und Korrelation
+        cov(Daten1$liegestuetz, Daten1$sprungweite_km)
+        cor(Daten1$liegestuetz, Daten1$sprungweite_km)
+            
+        ```
+
+        Während sich die Kovarianz durch den Einheitswechsel deutlich ändert, bleibt die Korrelation gleich. An diesem Beispiel zeigen sich Einheitsabhängigkeit der Kovarianz und Einheitsunabhängigkeit der Korrelation.
+        :::
+
+(@) **BONUS:** Zeigen Sie, dass für z-standardisierte Messwerte stets
+
+    $$\bar{z} = \frac{1}{n}\sum_{i = 1}^{n}z_{i} = 0$$
+
+    gilt.
+
+    ::: {.callout-tip collapse="true"}
+    # Lösung
+
+    $$
+    \begin{align*}
+    \bar{z} &= \frac{1}{n}\sum_{i=1}^n z_i \\
+    &= \frac{1}{n}\sum_{i=1}^n \left( \frac{x_i - \bar{x}}{s_{emp}} \right) \\
+    &= \frac{1}{n \cdot s_{emp}} \sum_{i= 1}^n (x_i - \bar{x})\\
+    &= \frac{1}{n \cdot s_{emp}} \left(\sum_{i= 1}^n x_i  - \sum_{i = 1}^n  \bar{x} \right)\\
+    &= \frac{1}{n \cdot s_{emp}} \left(\sum_{i= 1}^n x_i  - n \cdot \bar{x}\right)\\
+    &= \frac{1}{s_{emp}} \left(\frac{1}{n}\sum_{i= 1}^n x_i  - \frac{n}{n} \cdot \bar{x}\right)\\
+    &= \frac{1}{s_{emp}} \left(\bar{x}  - \bar{x}\right)\\
+    &= \frac{1}{s_{emp}} \cdot 0 = 0\\
+    \end{align*}
+    $$
+    :::
