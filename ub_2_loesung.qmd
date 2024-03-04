@@ -1,0 +1,459 @@
+---
+title: "Übungsblatt_test 02"
+subtitle: "DESKRIPTIVE STATISTIK 1: Häufigkeiten, Maßzahlen und graphische Darstellungen"
+format: 
+  html:
+    toc: false
+---
+
+(@) Erläutern Sie den Unterschied zwischen einem Messwert und einer Messwertausprägung.
+
+::: {.callout-tip collapse=true}
+# Lösung
+Ein Messwert oder ein Variablenwert bezeichnet den Wert, den eine Person
+auf Basis einer Messung zugewiesen bekommt. Die unterschiedlichen
+Ausprägungen die diese Messwerte in der Beobachtung annehmen sind die
+Messwertausprägungen. Die Menge aller Messwertausprägungen bilden den
+Wertebereich der Messwerte. Da Tabellen der Ordnung und der
+Zusammenfassung von Daten dienen, werden dort i.A. die
+Messwertausprägungen (und nicht die Messwerte) in aufsteigender
+Reihenfolge aufgelistet. Durch die Angabe, wie oft jede
+Messwertausprägung beobachtet wurde (d.h. durch die Bestimmung von
+Häufigkeiten), liegt in einer Tabelle die Information über die
+Gesamtheit der Messwerte, d.h. der Daten vor.
+:::
+
+(@) Eine Mathematikklausur in der 9. Klasse hat folgende Urliste ergeben: \
+  6, 6, 4, 2, 6, 3, 2, 2, 1, 2, 2, 6, 3, 3, 2, 3, 1, 1, 3, 1, 6, 2, 4, 4, 1
+
+    a)  Geben Sie die absoluten kumulierten Häufigkeiten an.
+
+        :::{.callout-tip collapse=true}
+        # Lösung
+          |**Note**  |***H***  |***h***   |***h*(%)**|***H~kum~***  |***h~kum~***  |***h~kum~*(%)**|
+          |:---------|--------:|---------:|---------:|-------------:|-------------:|--------------:|
+          |1         |5        |0,20      |20        |**5**         |0,20          |20             |
+          |2         |7        |0,28      |28        |**12**        |0,48          |48             |
+          |3         |5        |0,20      |20        |**17**        |0,68          |68             |
+          |4         |3        |0,12      |12        |**20**        |0,80          |80             |
+          |6         |5        |0,20      |20        |**25**        |1,00          |100            |
+        :::
+
+    b)  Geben Sie die relativen kumulierten Häufigkeiten in Prozent an.
+    
+        :::{.callout-tip collapse=true}
+        # Lösung
+        |**Note**  |***H***  |***h***   |***h*(%)**|***H~kum~***  |***h~kum~***  |***h~kum~*(%)**|
+        |:---------|--------:|---------:|---------:|-------------:|-------------:|--------------:|
+        |1         |5        |0,20      |20        |5             |0,20          |**20**         |
+        |2         |7        |0,28      |28        |12            |0,48          |**48**         |
+        |3         |5        |0,20      |20        |17            |0,68          |**68**         |
+        |4         |3        |0,12      |12        |20            |0,80          |**80**         |
+        |6         |5        |0,20      |20        |25            |1,00          |**100**        |
+        :::
+       
+    c)  Geben Sie den Messwert $x_{4}$ bezogen auf die obige Datenreihe an.
+
+        :::{.callout-tip collapse=true}
+        # Lösung
+        $x_4 = 2$
+        :::
+
+    d)  $H\left( x_{3} \right) = ?$
+
+        :::{.callout-tip collapse=true}
+        # Lösung
+        $H\left( x_{3} \right) = 5$ (Hinweis: bei $x_{3}$ handelt es sich
+        hier um die 3. Messwertausprägung)
+        :::
+    
+    e)  Berechnen Sie Mittelwert, Median, Modus und Standardabweichung.
+    
+        :::{.callout-tip collapse=true}
+        # Lösung
+        $\bar{x} = 3.04$
+    
+        $Md = 3$
+    
+        $Mod = 2$
+    
+        $s_{emp} \approx 1.73$
+        :::
+(@) Eine Umfrage wurde durchgeführt, um die bevorzugten Musikgenres von Personen zu ermitteln. Die Umfrageergebnisse sind wie folgt:\
+Pop, Rock, Pop, Jazz, Hip-Hop, Jazz, Rock, Klassik, Pop, Jazz, Elektronische Musik, Pop, Rock, Hip-Hop, Jazz, Hip-Hop, Pop, Rock, Jazz, Elektronische Musik
+
+    a) geben Sie die relativen Häufigkeiten, so wie die relativen kumulierten Häufigkeiten an.
+    
+       :::{.callout-note collapse=true}
+       # Lösung
+       |**Musikgenre**        |***h*(%)** |***h~kum~*(%)**|
+       |:---------------------|----------:|--------------:|
+       |Pop                   |0,25       |0,25           |
+       |Rock                  |0,20       |0,45           |
+       |Jazz                  |0,25       |0,70           |
+       |Hip-Hop               |0,15       |0,85           |
+       |Klassik               |0,05       |0,90           |
+       |Elektronische Musik   |0,10       |100            |
+       :::
+       
+    b) Geben Sie den Modus an.
+    
+       :::{.callout-note collapse=true}
+       # Lösung
+       $Mod = Jazz$
+       :::
+ 
+        
+
+    
+(@) Berechnen Sie für die Messwerte aus der Aufgabe 2:
+
+    a)  $\sum_{i = 1}^{3}x_{i}$
+    
+        :::{.callout-tip collapse=true}
+        # Lösung
+        $\sum_{i = 1}^{3}x_{i} = 6 + 6 + 4 = 16$
+        :::
+
+    b)  $\sum_{i = 1}^{5}{{(x}_{i} - 1)}$
+
+        :::{.callout-tip collapse=true}
+        # Lösung
+        $\sum_{i = 1}^{5}{{(x}_{i} - 1)} = (6 - 1) + (6 - 1) + (4 - 1) + (2 - 1) + (6 - 1) = 5 + 5 + 3 + 1 + 5 = 19$
+        :::
+
+    c)  $\sum_{i = 1}^{3}{x_{i} - 1}$
+    
+        :::{.callout-tip collapse=true}
+        # Lösung
+        $\sum_{i = 1}^{3}{x_{i} - 1} = 16 - 1 = 15$
+        :::
+    
+    d)  $\sum_{i = 2}^{4}{(x_{i} - 1)}^{2}$
+    
+        :::{.callout-tip collapse=true}
+        # Lösung
+        $\sum_{i = 2}^{4}{(x_{i} - 1)}^{2} = {(6 - 1)}^{2} + {(4 - 1)}^{2} + {(2 - 1)}^{2} = 25 + 9 + 1 = 35$
+        :::
+        
+    e)  $\sum_{i = 3}^{4}\frac{{(x_{i} + 1)}^{2}}{2}$
+    
+        :::{.callout-note collapse=true}
+        # Lösung
+        $\sum_{i = 3}^{4}\frac{{(x_{i} + 1)}^{2}}{2} = \frac{{(4 + 1)}^{2} + {(2 + 1)}^{2}}{2} = \frac{25 + 9}{2}  = \frac{34}{2} = 17$
+        :::
+    
+(@) Welche Maße der zentralen Tendenz bieten sich zur Beschreibung der unten dargestellten Variablen besonders an? Begründen Sie.
+
+    ```{r}
+    #| fig-cap: Histogramm einer Variable
+    #| fig-alt: Histogramm einer Variable, das eine eingipflige Verteilung von Werten zwischen 9 und 11 zeigt, sowie einzelne     Beobachtungen bei einem Wert von 13 und 15.
+    #| echo: false
+    
+    x <- c(rep(9.3, 1), rep(9.5, 4), rep(9.7, 8), rep(9.9, 9), 
+           rep(10.1, 12), rep(10.3, 9), rep(10.5, 5), rep(10.7, 2), 13, 15)
+    hist(x, breaks = 40, main = "Beispieldaten", xlab = "Werte", ylab = "Häufigkeiten")
+    ```
+    
+    :::{.callout-tip collapse=true}
+    # Lösung
+    Es liegen zwei Ausreißer vor, die deutlich größer sind als der Rest der Messwerte. Deshalb sind Maße, die wenig ausreißersensitiv     sind, besser zur Beschreibung geeignet. Dies trifft auf die Maße Modalwert und Median zu. Der Mittelwert ist hingegen weniger gut     geeignet, da er ausreißersensitiv ist.
+    :::
+    
+    
+    
+    
+    
+    
+    ```{r}
+    #| fig-cap: Histogramm einer Variable
+    #| fig-alt: Histogramm einer Variable, das eine eingipflige Verteilung von Werten zwischen 9 und 11 zeigt, sowie einzelne     Beobachtungen bei einem Wert von 13 und 15.
+    #| echo: false
+    
+    x <- c(rep(9.3, 1), rep(9.5, 4), rep(9.7, 8), rep(9.9, 9), 
+           rep(10.1, 12), rep(10.3, 9), rep(10.5, 5), rep(10.7, 2), rep(10.9, 1.7), rep(11.1, 0.5))
+    hist(x, breaks = 10, main = "Beispieldaten", xlab = "Werte", ylab = "Häufigkeiten")
+    ```    
+
+    :::{.callout-note collapse=true}
+    # Lösung
+    Es liegen keine Ausreißer vor, daher ist neben Modus und Median auch der Mittelwert ein geeignetes Maß zur Beschreibung der Daten
+    ::: 
+    
+    
+    
+    \
+    ```{r}
+    #| fig-cap: Säulendiagramm mit relativen Häufigkeiten von Augenfarben.
+    #| fig-alt: Säulendiagramm mit relativen Häufigkeiten von Augenfarben. 5 % blau, 50 % braun, 10 % grau und 35 % grün.
+    #| echo: false
+    
+    library(ggplot2)
+    d <- data.frame(Farbe = c("blau", "braun", "grau", "grün"),
+                    h = c(0.05, 0.5, 0.1, 0.35))
+    ggplot(d) + 
+      geom_bar(aes(x = Farbe, y = h), stat = 'identity') +
+      ylab("relative Häufigkeit") +
+      ggtitle("Relative Häufigkeiten von Augenfarben")
+    ```
+    
+    :::{.callout-tip collapse=true}
+    # Lösung
+    Modus, da hier eine diskrete kategoriale Variable dargestellt ist.
+    :::
+    
+    
+    
+    ```{r}
+    #| fig-cap: Boxplot
+    #| fig-alt: Boxplot
+    #| echo: false
+    
+   # Beispiel Daten
+    x <- c(5, 7, 7, 8, 8, 8, 9, 9, 9, 9, 10, 10, 10, 11, 11, 12)
+
+# Boxplot erstellen
+    boxplot(x, main = "Boxplot der Daten", ylab = "Werte")
+    ```    
+ 
+    :::{.callout-note collapse=true}
+    # Lösung
+    Median, der dem 50% Quantil entspricht
+    :::    
+  \ 
+    
+    
+    
+    
+    
+(@) Ihnen liegen die folgenden Quantile vor:
+
+    ```{r}
+    #| echo: false
+    x <- rnorm(100, 10, 5)
+    round(quantile(x, probs = seq(0, 1, by = 0.05)), 2)
+    ```
+
+    Minimaler und maximaler Messwert sind hierbei:
+
+    $x_{\min} = `r round(min(x), 2)`$ und $x_{\max} = `r round(max(x), 2)`$
+    
+    Skizzieren Sie einen Boxplot, basierend auf den in der Tabelle
+    angegebenen Quantilen. Hinweis: Ausreißer müssen Sie in Ihrem Plot nicht
+    berücksichtigen.
+
+    :::{.callout-tip collapse=true}
+    # Lösung
+    
+    ```{r}
+    #| fig-cap: Boxplot
+    #| fig-alt: Boxplot bei dem die Box selbst durch das 25 %-, das 50 %- und das 75 %-Quantil gegeben sind. Zusätzlich ist durch je     einen vertikalen Strich ausgehend von der Box nach unten das Minimum und nach oben das Maximum der Werte angegeben.
+    #| echo: false
+    
+    ggplot(data.frame(x)) + geom_boxplot(aes(y = x), coef = 5) +
+      ylab("") + scale_x_continuous(name = "X") + theme_bw() + 
+      theme(axis.text.x = element_blank(), axis.ticks.x = element_blank())#
+    ```
+    :::
+
+
+(@) Laden Sie von Moodle den Datensatz „Beispieldaten.csv" herunter und speichern Sie ihn auf Ihrem Computer ab. Lesen Sie den Datensatz dann wie im Einführungsvideo gezeigt mit dem Befehl `read.csv2( ... )` ein und weisen Sie ihn einem Objekt mit dem Namen *Daten* zu. (*Hinweis: Vergessen Sie nicht, das Arbeitsverzeichnis vorher zu setzen.)*
+
+    Im Datensatz sind von sieben Personen das **Studienfach**, das
+    **Alter**, das **Bundesland** aus dem sie kommen, ihre **Abiturnote**
+    und ihre Anreisezeit in Minuten (**Anreise_min**) erfasst.
+
+    :::{.callout-tip collapse=true}
+    # Lösung
+
+    ```{r}
+    #| eval: false
+
+    ## Daten einlesen
+    Daten <- read.csv2('Beispieldaten.csv')
+    
+    ```
+    :::
+    
+
+    a)  Berechnen Sie in R für jede Person die Anreisezeit in Sekunden.
+        Fügen Sie das Ergebnis der Tabelle *Daten* als neue Spalte
+        „Anreise_sec" hinzu. *Hinweis:* Zuweisungen zu *neuen* Spalten
+        können Sie mit Hilfe von \$ und \<- machen. Also z.B. mit einer
+        Zuweisung mit *Daten\$Anreise_sec \<- ...*
+        
+        :::{.callout-tip collapse=true}
+        # Lösung
+        ```{r}
+        #| eval: false
+        
+        ## Anreisezeit in Sekunden umrechnen und zu Datensatz hinzufügen
+        Daten$Anreise_sec <- Daten$Anreise_min * 60
+        ```
+        
+        :::
+        
+    b)  Fügen Sie für jede Person das Alter in Tagen in eine neue Spalte hinzu.
+    
+        :::{.callout-note collapse=true}
+        # Lösung
+        ```{r}
+        #| eval: false
+        
+        ## Alter in Tage umrechnen und zu Datensatz hinzufügen
+        Daten$Alter_tage <- Daten$Alter * 365
+        ```
+        
+        :::    
+    
+
+    
+    b)  Erstellen Sie mit der Funktion table() eine Häufigkeitstabelle, die
+        jeder Ausprägung der Spalte Alter des Objekts *Daten* eine absolute
+        Häufigkeit zuweist. Speichern Sie das Ergebnis als Objekt *H* ab.
+
+        :::{.callout-tip collapse=true}
+        # Lösung
+        ```{r}
+        #| eval: false
+        
+        ## Absolute Häufigkeiten:
+        H <- table(Daten$Alter)
+        H
+        
+        ```
+        
+        :::
+
+    c)  Erstellen Sie eine Häufigkeitstabelle, die jeder Altersausprägung
+        eine relative Häufigkeit zuweist. Wandeln Sie hierfür die absoluten
+        Häufigkeiten aus *H* mithilfe der Funktion prop.table() in relative
+        Häufigkeiten um. Speichern Sie das Ergebnis als Objekt *h* ab.
+
+        :::{.callout-tip collapse=true}
+        # Lösung
+        ```{r}
+        #| eval: false
+        
+        ## Relative Häufigkeiten
+        h <- prop.table(H)
+        h
+
+        ```
+        
+        :::
+    
+    d)  Erstellen Sie eine Häufigkeitstabelle, die jeder Altersausprägung
+        eine absolute kumulierte Häufigkeit zuweist. Wandeln Sie hierfür die
+        absoluten Häufigkeiten aus *H* mithilfe der Funktion cumsum() in
+        absolute kumulierte Häufigkeiten um. Speichern Sie das Ergebnis als
+        Objekt *Hkum* ab.
+
+        :::{.callout-tip collapse=true}
+        # Lösung
+        ```{r}
+        #| eval: false
+        
+        ## Absolute kumulierte Häufigkeiten:
+        Hkum <- cumsum(H)
+        Hkum
+        
+        ```
+        
+        :::
+        
+    e)  Erstellen Sie eine Häufigkeitstabelle, die jeder Altersausprägung
+        eine relative kumulierte Häufigkeit zuweist. Wandeln Sie hierfür die
+        relativen Häufigkeiten aus *h* mithilfe der Funktion cumsum() in
+        relative kumulierte Häufigkeiten um. Speichern Sie das Ergebnis als
+        Objekt *hkum* ab.
+        
+        :::{.callout-tip collapse=true}
+        # Lösung
+        ```{r}
+        #| eval: false
+        
+        ## Relative kumulierte Häufigkeiten
+        hkum <- cumsum(h)
+        hkum
+        
+        ```
+        
+        :::
+        
+    f)  Erstellen Sie mit der Funktion barplot() jeweils ein Balkendiagramm
+        für *H*, *h, Hkum, hkum*!
+        
+        :::{.callout-tip collapse=true}
+        # Lösung
+        ```{r}
+        #| eval: false
+        
+        ## Balkendiagramme
+        barplot(H)
+        barplot(h)
+        barplot(Hkum)
+        barplot(hkum)
+        
+        ```
+        
+        :::
+        
+    g)  Erstellen Sie für die Variable Anreisezeit in Sekunden mit der
+        Funktion hist() ein Histogramm. Warum eignet sich für diese Variable
+        als graphische Darstellung ein Histogramm?
+        
+        :::{.callout-tip collapse=true}
+        # Lösung
+        ```{r}
+        #| eval: false
+        
+        ## Histogramm Anreisezeit
+        hist(Daten$Anreise_sec)
+        
+        ```
+        
+        :::
+        
+    h)  Berechnen Sie mithilfe von R die durchschnittliche Anreisezeit in
+        Sekunden. Verwenden Sie hierfür die Funktion mean().
+        
+        :::{.callout-tip collapse=true}
+        # Lösung
+        ```{r}
+        #| eval: false
+        
+        mean(Daten$Anreise_sec)
+        ```
+        
+        :::
+        
+        
+    i)  Wählen Sie nur die Versuchsteilnehmer aus, die Psychologie studieren
+        und berechnen Sie für die Variable „Alter" den Mittelwert, den
+        Median und die Standardabweichung. Verwenden Sie die Funktionen
+        mean(), median() und sd(). Hinweis: Die Variable Alter enthält einen
+        fehlenden Wert (NA = not available). Welches Argument muss jeweils
+        in die Funktion eingefügt werden, um Mittelwert, Median und
+        Standardabweichung berechnen zu können?
+        
+        :::{.callout-tip collapse=true}
+        # Lösung
+        ```{r}
+        #| eval: false
+        
+        ## Datensatz nur mit Psychologiestudierenden
+        Daten_Psy <- Daten[Daten$Studienfach == 'Psychologie', ]
+        
+        ## Mittelwert, Median und Standardabweichung berechnen. Das Argument
+        ## na.rm = TRUE sorgt dafuer, dass fehlende Werte vor der Berechnung
+        ## aus dem Vektor entfernt werden.
+        mean(Daten_Psy$Alter) ## gibt NA aus, da Grundeinstellung na.rm = FALSE ist.
+        mean(Daten_Psy$Alter, na.rm = TRUE)
+        median(Daten_Psy$Alter, na.rm = TRUE)
+        sd(Daten_Psy$Alter, na.rm = TRUE)
+        
+        ```
+        
+        :::
+        
